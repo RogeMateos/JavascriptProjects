@@ -14,6 +14,6 @@ function cargarEventListeners() {
 }
 
 
-function agregarCurso () { 
-    console.log('presionado en cursos')
+function agregarCurso (e) { 
+    console.log(e.target.classList)
 }
