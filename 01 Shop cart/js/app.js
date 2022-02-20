@@ -10,7 +10,7 @@ const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
 const  agregarCurso = (e) => {
   e.preventDefault(); // Previene el link comportamiento nativo
   if (e.target.classList.contains("agregar-carrito")) {
-    console.log(e.target); //saber que curso estamos agregando 
+    console.log(e.target.parentElement.parentElement); //saber que curso estamos agregando 
   }
 }
 
@@ -19,3 +19,10 @@ const  cargarEventListeners = () => {
     listaCursos.addEventListener("click", agregarCurso);
   }
   cargarEventListeners();
+
+  
+  //Lee el contenido del Html al que le dimos click y extrae la informacion de le curso
+
+  const leerDatosCurso = () => {
+
+  }
