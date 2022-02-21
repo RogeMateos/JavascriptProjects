@@ -22,7 +22,7 @@ const  cargarEventListeners = () => {
   cargarEventListeners();
 
   
-  //Lee el contenido del Html al que le dimos click y extrae la informacion de le curso
+  //Lee el contenido del Html al que le dimos click y extrae la informacion de el curso
 
   const leerDatosCurso = (curso) => {
     //Crear un objeto con el contenido de el curso actual
@@ -38,4 +38,41 @@ const  cargarEventListeners = () => {
     articulosCarrito = [...articulosCarrito, infoCurso]
 
     console.log(articulosCarrito);
+
+    //LLamando funcion
+    carritoHTML ();
   }
+
+  //Muestra el carrito compras en el HTML
+  //iterando con foreach
+  function carritoHTML() {
+
+     //Limpiar el Html 
+
+     limpiarHtml();
+
+     //recorre el carrito y genera html 
+     articulosCarrito.forEach(curso => {
+      
+       const row = document.createElement('tr');
+      
+      row.innerHTML = `
+     
+       <td>
+        ${curso.titulo}
+       </td>
+      `;
+     //Agrega el Html de el carrito en el tbody
+     contenedorCarrito.appendChild(row);
+
+     
+    });
+
+  }
+
+
+  //Elimina los cursos de el table Body 
+
+function limpiarHtml (){
+ contenedorCarrito.innerHTML = '';
+}
