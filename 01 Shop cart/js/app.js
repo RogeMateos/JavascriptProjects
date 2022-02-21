@@ -4,7 +4,7 @@ const carrito = document.querySelector("#carrito");
 const listaCursos = document.querySelector("#lista-cursos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
-
+let articulosCarrito =[];
 
 
 const  agregarCurso = (e) => {
@@ -33,5 +33,9 @@ const  cargarEventListeners = () => {
         id:     curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
-    console.log(infoCurso)
+    //Agrega elementos al arreglo de el carrito
+
+    articulosCarrito = [...articulosCarrito, infoCurso]
+
+    console.log(articulosCarrito);
   }
