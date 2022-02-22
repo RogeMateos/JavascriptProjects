@@ -29,7 +29,12 @@ const  cargarEventListeners = () => {
   function eliminarCurso(e) {
     console.log(e.target.classList);//Obtains the class borrar curso
     if (e.target.classList.contains('borrar-curso')){
-     console.log(e.target.getAttribute('data-id'));
+     
+     const cursoId =e.target.getAttribute('data-id');//Obteniendo curso data id que deseo eliminar
+
+     //Elimina del areglo articulos carrito por el data-id
+     articulosCarrito = articulosCarrito.filter(curso =>curso.id !== cursoId);
+     console.log(articulosCarrito);
     }
   }
   
