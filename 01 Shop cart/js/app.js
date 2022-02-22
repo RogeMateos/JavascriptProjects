@@ -18,9 +18,17 @@ const  agregarCurso = (e) => {
 const  cargarEventListeners = () => {
     // Dispara cuando se presiona "Agregar Carrito"
     listaCursos.addEventListener("click", agregarCurso);
+
+    //Elimina cursos de carrito
+    carrito.addEventListener('click', eliminarCurso);
   }
   cargarEventListeners();
 
+  //Elimina cursos en el carrito 
+
+  function eliminarCurso() {
+    console.log('desde eliminar curso');
+  }
   
   //Lee el contenido del Html al que le dimos click y extrae la informacion de el curso
 
@@ -33,9 +41,26 @@ const  cargarEventListeners = () => {
         id:     curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
-    //Agrega elementos al arreglo de el carrito
 
-    articulosCarrito = [...articulosCarrito, infoCurso]
+    //Revisa si un elemento ya existe en el carrito
+    const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
+    if(existe) {
+         //Actualizamos la cantidad 
+         const cursos = articulosCarrito.map(curso =>{
+           if (curso => curso.id === infoCurso.id){
+              curso.cantidad++;
+              return curso //Retorna objeto atualizado 
+           } else {
+             return curso //Retorna los objetos que no son los duplicados
+           }
+         });
+         articulosCarrito = [...cursos]
+    }else{
+      //Agrega elementos al arreglo de el carrito
+       articulosCarrito = [...articulosCarrito, infoCurso]
+    }
+    
+
 
     console.log(articulosCarrito);
 
@@ -55,20 +80,20 @@ const  cargarEventListeners = () => {
      articulosCarrito.forEach(curso => {
       
        const row = document.createElement('tr');
-      
+       const {imagen,titulo,precio,cantidad,id} = curso;
       row.innerHTML = `
-     
+       
        <td>
-       <img src ="${curso.imagen}" width="100">
+       <img src ="${imagen}" width="100">
        </td>
-       <td>${curso.titulo}</td>
-       <td>${curso.precio}</td>
-       <td>${curso.cantidad}</td>
+       <td>${titulo}</td>
+       <td>${precio}</td>
+       <td>${cantidad}</td>
        <td>
-        <a a href="" class="borrar-curso" data-id="${curso.id}">x</a>
+        <a a href="" class="borrar-curso" data-id="${id}">x</a>
        </td>
       `;
-      
+
      //Agrega el Html de el carrito en el tbody
      contenedorCarrito.appendChild(row);
 
