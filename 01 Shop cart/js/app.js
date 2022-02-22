@@ -28,8 +28,8 @@ const  cargarEventListeners = () => {
   //Elimina cursos en el carrito 
   function eliminarCurso(e) {
     console.log(e.target.classList);//Obtains the class borrar curso
-    if (e.target.classlist.contains('borrar-curso')){
-
+    if (e.target.classList.contains('borrar-curso')){
+     console.log(e.target.getAttribute('data-id'));
     }
   }
   
@@ -93,7 +93,7 @@ const  cargarEventListeners = () => {
        <td>${precio}</td>
        <td>${cantidad}</td>
        <td>
-        <a a href="" class="borrar-curso" data-id="${id}">x</a>
+        <a a href="#" class="borrar-curso" data-id="${id}">x</a>
        </td>
       `;
 
