@@ -35,6 +35,8 @@ const  cargarEventListeners = () => {
      //Elimina del areglo articulos carrito por el data-id
      articulosCarrito = articulosCarrito.filter(curso =>curso.id !== cursoId);
      console.log(articulosCarrito);
+
+     carritoHTML();//Iterar sobre el carrito y mostrar su html
     }
   }
   
