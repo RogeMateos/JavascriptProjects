@@ -59,13 +59,19 @@ const  cargarEventListeners = () => {
       row.innerHTML = `
      
        <td>
-        ${curso.titulo}
+       <img src ="${curso.imagen}" width="100">
+       </td>
+       <td>${curso.titulo}</td>
+       <td>${curso.precio}</td>
+       <td>${curso.cantidad}</td>
+       <td>
+        <a a href="" class="borrar-curso" data-id="${curso.id}">x</a>
        </td>
       `;
+      
      //Agrega el Html de el carrito en el tbody
      contenedorCarrito.appendChild(row);
 
-     
     });
 
   }
@@ -74,5 +80,13 @@ const  cargarEventListeners = () => {
   //Elimina los cursos de el table Body 
 
 function limpiarHtml (){
- contenedorCarrito.innerHTML = '';
+     //Forma lenta
+ //contenedorCarrito.innerHTML = '';
+ 
+
+ // forma rapida (recomendada)
+ while(contenedorCarrito.firstChild) {
+     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+ }
+
 }
