@@ -24,10 +24,10 @@ const  cargarEventListeners = () => {
   }
   cargarEventListeners();
 
-  //Elimina cursos en el carrito 
 
-  function eliminarCurso() {
-    console.log('desde eliminar curso');
+  //Elimina cursos en el carrito 
+  function eliminarCurso(e) {
+    console.log(e.target.classList);
   }
   
   //Lee el contenido del Html al que le dimos click y extrae la informacion de el curso
