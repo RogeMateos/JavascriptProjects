@@ -27,7 +27,10 @@ const  cargarEventListeners = () => {
 
   //Elimina cursos en el carrito 
   function eliminarCurso(e) {
-    console.log(e.target.classList);
+    console.log(e.target.classList);//Obtains the class borrar curso
+    if (e.target.classlist.contains('borrar-curso')){
+
+    }
   }
   
   //Lee el contenido del Html al que le dimos click y extrae la informacion de el curso
